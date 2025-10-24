@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    background-color: rgb(86, 245, 171);
+    width: 100%;
+    padding: 1rem 2rem;
+    align-items: center;
+    gap: 1.5rem;
+     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height:15vh;
+}
+
+.pingimage {
+    flex: 0 0 auto;
+}
+
+.pingimage img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-items {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    margin-left: auto;
+}
+.index {
+    color: rgb(24, 22, 22);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    transform: translateX(0);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+}
+
+.nav-items:hover .index {
+    animation: slideLeft 0.8s ease forwards;
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+.index:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.header:hover {
+    background-color: rgb(236, 42, 87);
+    transition: background-color 0.3s ease;
+}
+.name {
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.2px;
+    margin-left: 0px;
+}
+@media (max-width:800px){
+    .header{
+         display: flex;
+         flex-direction: column;
+    background-color: rgb(86, 245, 86);
+    width: 100%;
+    padding: 1rem 2rem;
+    align-items: center;
+        gap: 1.5rem;
+    }
+}
+   @media (max-width: 560px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 0;
+  }
+
+  .index {
+    width: 100%;
+    text-align: center;
+  }
+}
+.j1{
+  color:white
+}
+.header{
+  background-image: url('./banner-1756639_1280.jpg');
+   background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.pop {
+  background-image: url('./backblack.webp');
+  background-size: cover;        /* make sure image covers full area */
+  background-position: center;   /* center the image nicely */
+  background-repeat: no-repeat;  /* prevent tiling if image is small */
+
+  height: 100vh;                 /* full viewport height */
+  padding-top: 150px;            /* space from top */
+}
+
+.pop:hover{
+      background-image: url('./trip.webp');
+  background-size: cover;        /* make sure image covers full area */
+  background-position: center;   /* center the image nicely */
+  background-repeat: no-repeat;  /* prevent tiling if image is small */
+
+  height: 100vh;                 /* full viewport height */
+  padding-top: 150px;            /* space from top */
+}
+
+.up {
+  background-image:url('./neon.jpg');
+   background-size: cover;        /* make sure image covers full area */
+  background-position: center;   /* center the image nicely */
+  background-repeat: no-repeat; 
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height:60vh;
+  width:75vw;
+  margin-left: 210px;
+  border-radius:40px;
+  margin-left: 175px;
+
+}
+
+.intro, .motor {
+  background-color: white;
+  border-radius: 30px;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+} 
+
+/* Neon 3D Slider */
+/* .slider {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+
+  transform: perspective(1000px) translateZ(20px);
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+} */
+
+/* .slider:hover {
+  transform: perspective(1000px) translateZ(40px) scale(1.05);
+  box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff;
+} 
+
+/* Slides container
+.slides {
+  display: flex;
+  width: 300%; /* 4 images, adjust as needed */
+  /* height: 100%;
+  animation: slideAnim 20s infinite ease-in-out;
+} */ 
+
+/* Each image */
+/* .slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-right: 10px; /* gap between images */
+  /* border-radius: 10px;
+} */ 
+
+/* Slide animation: forward 2 slides, pause, then reverse */
+/* @keyframes slideAnim {
+  0%   { transform: translateX(0%); }
+  20%  { transform: translateX(-100%); }
+  40%  { transform: translateX(-200%); }
+  50%  { transform: translateX(-200%); }
+  60%  { transform: translateX(-100%); }
+  80%  { transform: translateX(0%); }
+  100% { transform: translateX(0%); }
+} */ 
+
+

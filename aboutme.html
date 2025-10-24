@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About — Amrit Bhardwaj</title>
+<meta name="description" content="About — Amrit Bhardwaj (ECE student, competitive programmer, full-stack builder)" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-0: #071022;
+    --bg-1: linear-gradient(180deg,#071022 0%, #0f1724 60%);
+    --card: rgba(255,255,255,0.04);
+    --muted: #9fb0c8;
+    --accent: #18d08b;
+    --glass: rgba(255,255,255,0.03);
+    --radius: 18px;
+    --maxw: 1100px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial;
+    background: var(--bg-1);
+    color: #e6eef6;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    padding-bottom:3rem;
+  }
+
+  .container{max-width:var(--maxw);margin:0 auto;padding:1rem 1.25rem;}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:1200;
+    backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, rgba(4,8,15,0.6), rgba(4,8,15,0.25));
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .nav{
+    display:flex;align-items:center;gap:1rem;padding:0.85rem 0;
+  }
+  .brand{display:flex;gap:.8rem;align-items:center}
+  .brand img{width:56px;height:56px;border-radius:12px;object-fit:cover;box-shadow:0 8px 26px rgba(0,0,0,0.6);border:2px solid rgba(255,255,255,0.05)}
+  .brand h1{font-family:"Poppins";font-size:1rem;margin:0;color:var(--accent)}
+  nav.primary{margin-left:auto;display:flex;gap:0.6rem;align-items:center}
+  nav.primary a{color:var(--muted);text-decoration:none;padding:0.45rem 0.65rem;border-radius:8px;font-weight:500}
+  nav.primary a:hover{color:#fff;background:var(--glass)}
+  .menu-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:1.2rem}
+
+  /* Hero / Top */
+  .top{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:1rem;
+    margin-top:1rem;
+    align-items:stretch;
+  }
+
+  .hero{
+    display:flex;gap:1rem;align-items:stretch;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:var(--radius);padding:1rem;box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  }
+
+  .left{flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:.6rem;}
+  .left h2{font-family:"Poppins";margin:0;font-size:1.35rem;color:#fff}
+  .left p{color:var(--muted)}
+  .intro-actions{display:flex;gap:0.6rem;margin-top:.6rem;flex-wrap:wrap}
+  .btn{background:linear-gradient(90deg,var(--accent), #60e6b0);color:#052024;padding:.5rem .85rem;border-radius:10px;text-decoration:none;font-weight:700}
+  .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+  .portrait{
+    width:170px;min-width:140px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* Content grid */
+  .content-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
+  .card{background:var(--card);padding:1rem;border-radius:14px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+  .muted{color:var(--muted)}
+  .small{font-size:.9rem;color:var(--muted)}
+
+  /* Slider */
+  .slider{
+    width:100%;height:220px;border-radius:12px;overflow:hidden;position:relative;background:linear-gradient(180deg, #071022, #0b1320);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .slides{display:flex;height:100%;transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+  .slides img{width:100%;height:100%;object-fit:cover;display:block}
+  .slider .dots{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;display:flex;gap:8px}
+  .dot{width:10px;height:10px;border-radius:99px;background:rgba(255,255,255,0.14);cursor:pointer}
+  .dot.active{background:var(--accent);box-shadow:0 6px 18px rgba(24,208,139,0.15)}
+
+  /* Typed line */
+  .typed{color:var(--accent);font-weight:700}
+
+  /* Skills */
+  .skills{display:flex;flex-direction:column;gap:.75rem}
+  .skill{display:flex;flex-direction:column;gap:.25rem}
+  .skill .label{display:flex;justify-content:space-between;font-size:.95rem}
+  .bar{height:12px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+  .progress{height:100%;width:0%;background:linear-gradient(90deg,var(--accent), #60e6b0);border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.2,1)}
+
+  /* Timeline */
+  .timeline{display:flex;flex-direction:column;gap:12px}
+  .event{display:flex;gap:12px;align-items:flex-start}
+  .event .dot{width:12px;height:12px;border-radius:99px;background:var(--accent);margin-top:6px}
+  .event .body{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;flex:1}
+  .event h4{margin:0 0 6px 0;font-size:1rem}
+  .event p{margin:0;color:var(--muted);font-size:.95rem}
+
+  /* Contact CTA */
+  .cta{display:flex;gap:.6rem;align-items:center;justify-content:space-between;padding:.75rem;border-radius:12px;background: linear-gradient(90deg, rgba(24,208,139,0.06), rgba(96,230,176,0.03));}
+
+  /* Footer */
+  footer{margin-top:1rem;text-align:center;color:var(--muted);font-size:.9rem}
+
+  /* Responsive */
+  @media(min-width:900px){
+    .top{grid-template-columns: 1fr 360px}
+    .content-grid{grid-template-columns: 1fr 360px}
+    .slider{height:260px}
+  }
+  @media(max-width:899px){
+    nav.primary{display:none}
+    .menu-toggle{display:block;margin-left:auto}
+    .portrait{display:none}
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="container nav" role="navigation" aria-label="Main nav">
+    <div class="brand">
+      <a href="https://www.linkedin.com/in/amrit-bhardwaj-50836528a/" target="_blank" rel="noopener">
+        <img src="./personalimag2.jpg" alt="Amrit Bhardwaj">
+      </a>
+      <div>
+        <h1>Amrit Bhardwaj</h1>
+        <div class="small muted">B.Tech — ECE · Competitive programmer · ML & full-stack</div>
+      </div>
+    </div>
+
+    <nav class="primary" aria-label="Primary links">
+      <a href="./home.html" class="j1">Home</a>
+      <a href="./aboutme.html" class="j1">About</a>
+      <a href="./projects.html" class="j1">Projects</a>
+      <a href="./contactme.html" class="j1">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">☰</button>
+  </div>
+
+  <!-- simple mobile nav -->
+  <div id="mobileNav" class="container" style="display:none;padding-bottom:.6rem">
+    <nav style="display:flex;gap:.6rem;flex-wrap:wrap">
+      <a href="./home.html">Home</a>
+      <a href="./aboutme.html">About</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./contactme.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Top hero -->
+  <section class="top">
+    <div class="hero" aria-labelledby="heroTitle">
+      <div class="left">
+        <h2 id="heroTitle">Hi — I’m <span style="color:#fff;font-weight:700">Amrit Bharadwaj</span></h2>
+        <p><span id="typed" class="typed"></span></p>
+        <p class="small muted">Electronics & Communication Engineering student at Gati Shakti Vishwavidyalaya. I build full-stack apps, solve DSA problems on LeetCode, and experiment with applied ML.</p>
+
+        <div class="intro-actions">
+          <a class="btn" href="#contact" onclick="scrollToContact(event)">Contact me</a>
+          <a class="btn secondary" href="https://leetcode.com/u/amritbhardwaj4/" target="_blank" rel="noopener">LeetCode</a>
+          <a class="btn secondary" href="https://github.com/Amritbhardwajgsv" target="_blank" rel="noopener">GitHub</a>
+        </div>
+
+        <!-- quick CTA -->
+        <div style="margin-top:0.9rem" class="muted small">Tip: click profile images to open the original.</div>
+      </div>
+
+      <div class="portrait" aria-hidden="true">
+        <img src="./personalimag2.jpg" alt="Amrit portrait">
+      </div>
+    </div>
+
+    <!-- image slider -->
+    <div class="card slider" id="slider" aria-label="Image slider">
+      <div class="slides" id="slides">
+        <!-- Replace images or add more. Use good resolution. -->
+        <img src="./11.jpg" alt="photo 1" loading="lazy">
+        <img src="./12.jpg" alt="photo 2" loading="lazy">
+        <img src="./personalimag2.jpg" alt="photo 3" loading="lazy">
+      </div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="content-grid">
+    <div>
+      <div class="card" id="aboutCard">
+        <h3>About me</h3>
+        <p class="muted">I’m Amrit — a curious builder who loves turning ideas into working systems. I code in <strong>C++</strong> and <strong>Python</strong>, build web apps with <strong>JavaScript/React</strong>, and explore ML projects. I enjoy competitive programming, system design, and practical ML applications.</p>
+
+        <div style="margin-top:.9rem">
+          <h4 style="margin:0 0 .6rem 0">Skills</h4>
+          <div class="skills" id="skills">
+            <div class="skill">
+              <div class="label"><span>Algorithms & DSA</span><span class="small muted">90%</span></div>
+              <div class="bar"><div class="progress" data-val="90"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label"><span>Python / ML</span><span class="small muted">80%</span></div>
+              <div class="bar"><div class="progress" data-val="80"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label"><span>Web / Fullstack</span><span class="small muted">78%</span></div>
+              <div class="bar"><div class="progress" data-val="78"></div></div>
+            </div>
+            <div class="skill">
+              <div class="label"><span>Systems / Design</span><span class="small muted">70%</span></div>
+              <div class="bar"><div class="progress" data-val="70"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- timeline -->
+      <div class="card" style="margin-top:1rem">
+        <h3>Timeline</h3>
+        <div class="timeline" id="timeline">
+          <div class="event">
+            <div class="dot" aria-hidden="true"></div>
+            <div class="body">
+              <h4>B.Tech — Gati Shakti Vishwavidyalaya (2023 - present)</h4>
+              <p class="muted">Electronics & Communication Engineering — learning embedded systems, communications, and signal processing.</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="dot" aria-hidden="true"></div>
+            <div class="body">
+              <h4>Competitive Programming & Projects</h4>
+              <p class="muted">Active on LeetCode, Codeforces, and building full-stack projects and small ML prototypes.</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="dot" aria-hidden="true"></div>
+            <div class="body">
+              <h4>Open Source & Learning</h4>
+              <p class="muted">Sharing code on GitHub and learning new stacks — currently diving deeper into system design and ML pipelines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <aside>
+      <div class="card">
+        <h3>Profiles</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:.6rem">
+          <a class="card" href="https://leetcode.com/u/amritbhardwaj4/" target="_blank" rel="noopener" style="display:flex;gap:.6rem;align-items:center">
+            <img src="./LeetCode_Sharing.png" alt="LeetCode" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+            <div><strong>LeetCode</strong><div class="small muted">Practice & contests</div></div>
+          </a>
+
+          <a class="card" href="https://github.com/Amritbhardwajgsv" target="_blank" rel="noopener" style="display:flex;gap:.6rem;align-items:center">
+            <img src="./github-128.webp" alt="GitHub" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+            <div><strong>GitHub</strong><div class="small muted">Projects & code</div></div>
+          </a>
+
+          <a class="card" href="https://www.kaggle.com/amritbharadwaj" target="_blank" rel="noopener" style="display:flex;gap:.6rem;align-items:center">
+            <img src="./kaggle.webp" alt="Kaggle" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+            <div><strong>Kaggle</strong><div class="small muted">Notebooks</div></div>
+          </a>
+
+          <a class="card" href="https://codeforces.com/profile/Amrit_bhardwaj" target="_blank" rel="noopener" style="display:flex;gap:.6rem;align-items:center">
+            <img src="./codeforce.png" alt="Codeforces" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+            <div><strong>Codeforces</strong><div class="small muted">Contests</div></div>
+          </a>
+        </div>
+
+        <div style="margin-top:1rem" class="cta" id="contact">
+          <div>
+            <div style="font-weight:700">Let's connect</div>
+            <div class="small muted">Email, socials, or a quick chat</div>
+          </div>
+          <div style="display:flex;gap:.5rem">
+            <a class="btn secondary" href="mailto:your-email@example.com">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/amrit-bhardwaj-50836528a/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- mini contact form -->
+      <div class="card" style="margin-top:1rem">
+        <h3>Quick message</h3>
+        <form id="miniForm" onsubmit="sendMini(event)" style="display:flex;flex-direction:column;gap:.6rem">
+          <input id="mnName" type="text" placeholder="Your name" required style="padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+          <input id="mnEmail" type="email" placeholder="Email" required style="padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+          <textarea id="mnMsg" rows="4" placeholder="Message" required style="padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
+          <button class="btn" type="submit">Send</button>
+        </form>
+        <div class="small muted" style="margin-top:.5rem">This uses <code>mailto:</code> so it opens your email client (no backend required).</div>
+      </div>
+    </aside>
+  </section>
+
+  <footer>
+    © 2025 Amrit Bhardwaj • Built with care — replace images & email in source.
+  </footer>
+</main>
+
+<script>
+/* -----------------------------
+   Mobile toggle
+   ----------------------------- */
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+menuToggle?.addEventListener('click', () => {
+  const open = mobileNav.style.display === 'block';
+  mobileNav.style.display = open ? 'none' : 'block';
+  menuToggle.setAttribute('aria-expanded', String(!open));
+});
+
+/* -----------------------------
+   Typed intro (simple loop)
+   ----------------------------- */
+const typedEl = document.getElementById('typed');
+const phrases = [
+  "Competitive programmer • C++ & Python",
+  "Full-stack & ML tinkerer",
+  "Designing clean systems and demos"
+];
+let tIndex = 0, cPos = 0, forward = true, pIndex = 0;
+function tick(){
+  const cur = phrases[pIndex];
+  typedEl.textContent = cur.slice(0, cPos) + (Date.now() % 800 < 400 ? '|' : '');
+  if(forward) {
+    cPos++;
+    if(cPos > cur.length){ forward=false; setTimeout(tick, 900); return; }
+  } else {
+    cPos--;
+    if(cPos < 0){ forward=true; pIndex = (pIndex+1) % phrases.length; cPos = 0; setTimeout(tick, 300); return; }
+  }
+  setTimeout(tick, forward ? 55 : 28);
+}
+tick();
+
+/* -----------------------------
+   Simple slider with dots + swipe
+   ----------------------------- */
+const slides = document.getElementById('slides');
+const slider = document.getElementById('slider');
+const dotsWrap = document.getElementById('dots');
+const imgs = slides.querySelectorAll('img');
+let cur = 0;
+function makeDots(){
+  imgs.forEach((_,i)=>{
+    const d = document.createElement('div'); d.className='dot'; d.dataset.i = i;
+    d.addEventListener('click', ()=>{ goTo(i); resetAuto(); });
+    dotsWrap.appendChild(d);
+  });
+  updateDots();
+}
+function updateDots(){
+  dotsWrap.querySelectorAll('.dot').forEach((d,i)=> d.classList.toggle('active', i===cur));
+}
+function goTo(i){
+  cur = (i + imgs.length) % imgs.length;
+  slides.style.transform = `translateX(-${cur * 100}%)`;
+  updateDots();
+}
+makeDots();
+
+let autoSlide = setInterval(()=> { goTo(cur+1); }, 4200);
+function resetAuto(){ clearInterval(autoSlide); autoSlide = setInterval(()=> goTo(cur+1), 4200); }
+
+/* swipe support */
+let startX = 0;
+slider.addEventListener('touchstart', (e)=> startX = e.touches[0].clientX);
+slider.addEventListener('touchend', (e)=>{
+  const dx = (e.changedTouches[0].clientX - startX);
+  if(dx > 40) goTo(cur-1), resetAuto();
+  else if(dx < -40) goTo(cur+1), resetAuto();
+});
+
+/* -----------------------------
+   Animate skill bars when visible
+   ----------------------------- */
+const progressEls = document.querySelectorAll('.progress');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(ent=>{
+    if(ent.isIntersecting){
+      progressEls.forEach(el=>{
+        const val = el.dataset.val || 50;
+        el.style.width = val + '%';
+      });
+      obs.disconnect();
+    }
+  });
+},{threshold:0.3});
+obs.observe(document.getElementById('aboutCard'));
+
+/* -----------------------------
+   Mini contact form -> mailto
+   ----------------------------- */
+function sendMini(e){
+  e.preventDefault();
+  const name = encodeURIComponent(document.getElementById('mnName').value.trim());
+  const email = encodeURIComponent(document.getElementById('mnEmail').value.trim());
+  const msg = encodeURIComponent(document.getElementById('mnMsg').value.trim());
+  const to = 'your-email@example.com'; // <--- Replace with your real email
+  const subject = encodeURIComponent('Website message from ' + name);
+  const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${msg}`;
+  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+}
+
+/* -----------------------------
+   Scroll helper
+   ----------------------------- */
+function scrollToContact(e){
+  e?.preventDefault();
+  document.getElementById('contact').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+/* Accessibility: keyboard skip to main (nice to add) */
+</script>
+</body>
+</html>
