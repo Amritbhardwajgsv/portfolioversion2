@@ -15,6 +15,7 @@ const phrases = [
   "Competitive programmer • C++ & Python",
   "Full-stack & ML tinkerer",
   "Designing practical ML systems and prototypes"
+  
 ];
 let ph = 0, pos = 0, forward = true;
 
